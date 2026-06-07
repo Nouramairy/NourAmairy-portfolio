@@ -1,0 +1,14 @@
+<div class="section">
+  <div class="container">
+    <app-section-title
+      command="ls -la ./projects"
+      subtitle="Things I've built — placeholder projects ready to be replaced"
+    />
+
+    <div class="projects-grid">
+      @for (project of projects; track project.name) {
+        <app-project-card [project]="project" />
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+  height: 56px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-prompt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+
+  .f-arrow { color: var(--accent); }
+  .f-path { color: var(--text-dim); }
+}
+
+.f-copy {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-dim);
+}

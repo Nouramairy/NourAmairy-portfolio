@@ -1,0 +1,45 @@
+.skill-card {
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    border-color: var(--border-bright);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.sc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sc-command {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.sc-cat {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.sc-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sc-skill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.sc-arrow {
+  font-size: 15px;
+  flex-shrink: 0;
+}

@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" routerLink="/" (click)="closeMenu()">
+      <span class="nav-arrow">❯</span>
+      <span class="nav-path">~/portfolio</span>
+    </a>
+
+    <div class="nav-links" [class.open]="isMenuOpen()">
+      @for (link of navLinks; track link.path) {
+        <a
+          class="nav-link"
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.exact }"
+          (click)="closeMenu()"
+        >{{ link.label }}</a>
+      }
+    </div>
+
+    <button class="menu-btn" (click)="toggleMenu()" aria-label="Toggle navigation">
+      @if (isMenuOpen()) { ✕ } @else { ☰ }
+    </button>
+  </div>
+</nav>

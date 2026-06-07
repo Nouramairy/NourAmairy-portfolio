@@ -1,0 +1,43 @@
+<section class="hero">
+  <div class="hero-inner">
+    <div class="terminal-window hero-terminal">
+      <div class="terminal-header">
+        <div class="dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <span class="win-title">~/portfolio/home</span>
+      </div>
+      <div class="terminal-body">
+        @for (line of visibleLines(); track $index) {
+          <div class="t-line">
+            @switch (line.type) {
+              @case ('command') {
+                <span class="t-dollar">$</span>
+                <span class="t-cmd">{{ line.text }}</span>
+              }
+              @case ('output') {
+                <span class="t-arrow">›</span>
+                <span class="t-out">{{ line.text }}</span>
+              }
+              @default {
+                <span class="t-blank">&nbsp;</span>
+              }
+            }
+          </div>
+        }
+        <div class="t-line">
+          <span class="t-dollar">$</span>
+          <span class="cursor"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-cta" [class.visible]="isComplete()">
+      <a routerLink="/projects" class="btn btn-primary">./view-projects</a>
+      <a routerLink="/contact" class="btn btn-secondary">./contact-me</a>
+      <a routerLink="/about" class="btn btn-ghost">./about-me</a>
+    </div>
+  </div>
+</section>

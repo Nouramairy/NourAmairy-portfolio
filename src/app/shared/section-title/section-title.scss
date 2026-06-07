@@ -1,0 +1,33 @@
+.section-title {
+  margin-bottom: 48px;
+}
+
+.st-command {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.st-dollar {
+  color: var(--text-dim);
+  font-size: 22px;
+}
+
+.st-text {
+  color: var(--accent);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.st-subtitle {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin-top: 6px;
+  padding-left: 32px;
+}
+
+.st-line {
+  height: 1px;
+  background: linear-gradient(to right, var(--accent-mid), transparent);
+  margin-top: 16px;
+}

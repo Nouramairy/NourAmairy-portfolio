@@ -1,0 +1,112 @@
+<div class="section">
+  <div class="container">
+    <app-section-title command="cat about.md" subtitle="A bit about me and my journey" />
+
+    <div class="about-grid">
+      <!-- Bio terminal -->
+      <div class="terminal-window bio-terminal">
+        <div class="terminal-header">
+          <div class="dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="win-title">~/about/bio.txt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="profile-pic-wrap">
+            <img src="profile.png" alt="Profile picture" class="profile-pic" />
+          </div>
+          <div class="bio-line">
+            <span class="text-dim">$</span>
+            <span class="text-accent">whoami</span>
+          </div>
+          <p class="bio-output">
+            Hi, I'm <strong class="text-bright">Your Name</strong> — a full stack developer
+            who loves building clean, performant, and accessible web experiences.
+          </p>
+          <p class="bio-output">
+            I specialize in <span class="text-accent">Angular</span> on the frontend and
+            <span class="text-accent">Node.js</span> on the backend, with a strong eye
+            for UI/UX and developer experience.
+          </p>
+          <p class="bio-output">
+            When I'm not coding, you'll find me exploring new technologies, contributing
+            to open source, or drinking too much coffee.
+          </p>
+
+          <div class="bio-divider"></div>
+
+          <div class="bio-line">
+            <span class="text-dim">$</span>
+            <span class="text-accent">cat contact.txt</span>
+          </div>
+          <div class="bio-output contact-info">
+            <span><span class="text-dim">email:</span> your&#64;email.com</span>
+            <span><span class="text-dim">location:</span> Your City, Country</span>
+            <span><span class="text-dim">status:</span> <span class="text-green">Available for hire ✓</span></span>
+          </div>
+
+          <div class="bio-divider"></div>
+          <app-social-links [links]="socials" size="sm" />
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="about-right">
+        <!-- Tech stack -->
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="win-title">~/about/tech-stack.txt</span>
+          </div>
+          <div class="terminal-body">
+            <div class="bio-line">
+              <span class="text-dim">$</span>
+              <span class="text-accent">ls ./skills</span>
+            </div>
+            <div class="tech-tags">
+              @for (tech of techStack; track tech) {
+                <span class="tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="win-title">~/about/experience.txt</span>
+          </div>
+          <div class="terminal-body">
+            <div class="bio-line">
+              <span class="text-dim">$</span>
+              <span class="text-accent">cat experience.txt</span>
+            </div>
+            <div class="exp-list">
+              @for (exp of experience; track exp.period) {
+                <div class="exp-item">
+                  <div class="exp-header">
+                    <span class="exp-role text-bright">{{ exp.role }}</span>
+                    <span class="exp-period text-dim">{{ exp.period }}</span>
+                  </div>
+                  <span class="exp-company text-accent">{{ exp.company }}</span>
+                  <p class="exp-desc text-dim">{{ exp.description }}</p>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

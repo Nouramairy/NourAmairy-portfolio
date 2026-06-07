@@ -1,0 +1,24 @@
+<div class="skill-card terminal-window">
+  <div class="terminal-header">
+    <div class="dots">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </div>
+    <span class="win-title">~/skills/{{ group().category }}</span>
+  </div>
+  <div class="terminal-body sc-body">
+    <div class="sc-command">
+      <span class="text-dim">$</span>
+      <span class="sc-cat" [style.color]="group().color">ls {{ group().category }}/</span>
+    </div>
+    <div class="sc-skills">
+      @for (skill of group().skills; track skill) {
+        <span class="sc-skill">
+          <span class="sc-arrow" [style.color]="group().color">›</span>
+          {{ skill }}
+        </span>
+      }
+    </div>
+  </div>
+</div>

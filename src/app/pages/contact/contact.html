@@ -1,0 +1,149 @@
+<div class="section">
+  <div class="container">
+    <app-section-title
+      command="send --message"
+      subtitle="Let's build something together"
+    />
+
+    <div class="contact-grid">
+      <!-- Form terminal -->
+      <div class="terminal-window contact-terminal">
+        <div class="terminal-header">
+          <div class="dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="win-title">~/contact/send-message.sh</span>
+        </div>
+        <div class="terminal-body">
+
+          @if (submitted()) {
+            <div class="success-msg">
+              <div class="success-line">
+                <span class="text-green">✓</span>
+                <span class="text-bright">Message sent successfully!</span>
+              </div>
+              <p class="text-dim">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+              <div class="success-cmd">
+                <span class="text-dim">$</span>
+                <span class="text-accent">echo "Talk soon!"</span>
+              </div>
+            </div>
+          } @else {
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
+              <div class="form-group">
+                <label class="form-label">
+                  <span class="text-dim">$</span>
+                  <span class="text-accent">--name</span>
+                </label>
+                <input
+                  type="text"
+                  formControlName="name"
+                  class="form-input"
+                  [class.error]="isInvalid('name')"
+                  placeholder="Your Name"
+                  autocomplete="name"
+                />
+                @if (isInvalid('name')) {
+                  <span class="form-error">› Name is required (min 2 characters)</span>
+                }
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span class="text-dim">$</span>
+                  <span class="text-accent">--email</span>
+                </label>
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-input"
+                  [class.error]="isInvalid('email')"
+                  placeholder="your@email.com"
+                  autocomplete="email"
+                />
+                @if (isInvalid('email')) {
+                  <span class="form-error">› Please enter a valid email address</span>
+                }
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span class="text-dim">$</span>
+                  <span class="text-accent">--message</span>
+                </label>
+                <textarea
+                  formControlName="message"
+                  class="form-input form-textarea"
+                  [class.error]="isInvalid('message')"
+                  placeholder="Tell me about your project or idea..."
+                  rows="5"
+                ></textarea>
+                @if (isInvalid('message')) {
+                  <span class="form-error">› Message is required (min 10 characters)</span>
+                }
+              </div>
+
+              <button type="submit" class="btn btn-primary submit-btn" [disabled]="sending()">
+                @if (sending()) {
+                  <span class="cursor"></span>
+                  Sending...
+                } @else {
+                  ./send-message.sh
+                }
+              </button>
+            </form>
+          }
+
+        </div>
+      </div>
+
+      <!-- Info panel -->
+      <div class="contact-info">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="win-title">~/contact/info.txt</span>
+          </div>
+          <div class="terminal-body">
+            <div class="info-line">
+              <span class="text-dim">$</span>
+              <span class="text-accent">cat info.txt</span>
+            </div>
+            <div class="info-items">
+              <div class="info-item">
+                <span class="info-key text-dim">response_time:</span>
+                <span class="info-val">&lt; 24 hours</span>
+              </div>
+              <div class="info-item">
+                <span class="info-key text-dim">availability:</span>
+                <span class="info-val text-green">Open to opportunities</span>
+              </div>
+              <div class="info-item">
+                <span class="info-key text-dim">location:</span>
+                <span class="info-val">Your City, Country</span>
+              </div>
+              <div class="info-item">
+                <span class="info-key text-dim">timezone:</span>
+                <span class="info-val">GMT+X</span>
+              </div>
+            </div>
+
+            <div class="info-divider"></div>
+
+            <div class="info-line">
+              <span class="text-dim">$</span>
+              <span class="text-accent">ls ./socials</span>
+            </div>
+            <app-social-links [links]="socials" size="sm" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
